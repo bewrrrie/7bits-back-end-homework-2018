@@ -9,10 +9,13 @@ import java.nio.charset.StandardCharsets;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        String example = "aaa { bbbb; ccc; }";
+        String example1 = "aaa { bbbb; ccc;}";
+        String example2 = "while (inputStream.hasNext()) {\n" +
+        "   char symbol = inputStream.read(); if (symbol == ' ')" +
+        "{       whiteSpaceCount++;}    }";
 
         InputStreamReader reader = new InputStreamReader(
-            new ByteArrayInputStream(example.getBytes(StandardCharsets.UTF_8))
+            new ByteArrayInputStream(example1.getBytes(StandardCharsets.UTF_8))
         );
         OutputStreamWriter writer = new OutputStreamWriter(System.out);
 

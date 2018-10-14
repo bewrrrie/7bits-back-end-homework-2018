@@ -29,6 +29,22 @@ public class Formatter {
         return c == ' ' || c == '\n' || c == '\t';
     }
 
+    private Character readNonEmpty(InputStreamReader reader) throws IOException {
+        char result = ' ';
+
+        while (isEmptyChar(result)) {
+            int code = reader.read();
+
+            if (code == -1) {
+                return null;
+            }
+
+            result = (char) code;
+        }
+
+        return result;
+    }
+
     public void format(InputStreamReader reader, OutputStreamWriter writer) throws IOException {
         int tabLevel = 0;
         int code = reader.read();
