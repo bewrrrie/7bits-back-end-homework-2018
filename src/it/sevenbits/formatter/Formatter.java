@@ -7,7 +7,9 @@ import java.io.OutputStreamWriter;
 public class Formatter {
     private int tabSize;
 
-    private Formatter() {}
+    public Formatter() {
+        this.tabSize = 4;
+    }
 
     public Formatter(int tabSize) throws IllegalArgumentException {
         if (tabSize < 0) {
@@ -29,22 +31,6 @@ public class Formatter {
         return c == ' ' || c == '\n' || c == '\t';
     }
 
-    private Character readNonEmpty(InputStreamReader reader) throws IOException {
-        char result = ' ';
-
-        while (isEmptyChar(result)) {
-            int code = reader.read();
-
-            if (code == -1) {
-                return null;
-            }
-
-            result = (char) code;
-        }
-
-        return result;
-    }
-
     public void format(InputStreamReader reader, OutputStreamWriter writer) throws IOException {
         int tabLevel = 0;
         int code = reader.read();
@@ -56,19 +42,35 @@ public class Formatter {
 
             switch (current) {
                 case '{':
+                    if (previous == '\n') {
+                        tab(writer, tabLevel);
+                    }
+
                     writer.write(current);
-                    writer.write('\n');
                     current = '\n';
+                    writer.write(current);
                     tabLevel++;
+
                     break;
 
                 case '}':
-                    writer.write(current);
                     tabLevel--;
+
+                    if (previous != '\n') {
+                        writer.write('\n');
+                    }
+
+                    tab(writer, tabLevel);
+                    writer.write(current);
+
                     break;
 
                 case ' ':
-                    current = ' ';
+                    if (!isEmptyChar(previous)) {
+                        writer.write(current);
+                    }
+
+                    current = previous;
                     break;
 
                 case ';':
@@ -78,7 +80,7 @@ public class Formatter {
                     break;
 
                 default:
-                    if (isEmptyChar(previous)) {
+                    if (previous == '\n') {
                         tab(writer, tabLevel);
                     }
 
