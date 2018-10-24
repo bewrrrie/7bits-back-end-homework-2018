@@ -12,7 +12,7 @@ public class Main {
         String example1 = "aaa { bbbb; ccc;}";
         String example2 = "{{{{}}}}";
         String example3 = "while (inputStream.hasNext()) {" +
-        "char symbol = inputStream.read(); if (symbol =" +
+        "char symbol =      inpu\ntStream.read(); if (symbol =" +
         "= ' '){       whiteSpaceCount++;}    }";
 
         byte[] bytes = example3.getBytes(StandardCharsets.UTF_8);
