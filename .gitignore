@@ -1,5 +1,5 @@
-homework-1/.idea/
-homework-1/target/
+.idea/
+target/
 
 *.iml
 *.class
