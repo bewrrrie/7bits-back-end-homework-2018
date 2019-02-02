@@ -1,6 +1,6 @@
 package it.sevenbits.formatter;
 
-import it.sevenbits.reader.IReader;
+import it.sevenbits.lexer.ILexer;
 import it.sevenbits.writer.IWriter;
 
 import java.io.IOException;
@@ -12,10 +12,10 @@ import java.io.IOException;
 public interface IFormatter {
     /**
      * Format java code given by reading and writing streams.
-     * @param reader - given reading stream.
+     * @param lexer - given lexical analyser.
      * @param writer - given writing stream.
      * @throws IOException when got exceptional situation
      * while reading or writing character.
      */
-    void format(IReader reader, IWriter writer) throws IOException;
+    void format(ILexer lexer, IWriter writer) throws IOException;
 }

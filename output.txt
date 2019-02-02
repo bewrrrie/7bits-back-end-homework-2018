@@ -1,0 +1,12 @@
+public class LeaString[] args) {
+    int year = 1900;
+    boolean leap = false;
+    if(year % 4 == 0) {
+        if( year % 100 == 0) {
+            
+        }
+    }if (leap) {
+        System.out.println(year + " is a leap year.");
+    }System.out.println(year + " is not a leap year.");
+}
+}

@@ -1,13 +1,12 @@
 package it.sevenbits.reader;
 
-import java.io.Closeable;
 import java.io.IOException;
 
 /**
  * IReader interface. Provides implementation pattern
  * for symbolic reading streams.
  */
-public interface IReader extends Closeable {
+public interface IReader extends AutoCloseable {
     /**
      * @return True - if stream has character to read,
      * False - otherwise.

@@ -1,6 +1,7 @@
 package it.sevenbits.formatter;
 
 import com.google.common.base.Charsets;
+import it.sevenbits.lexer.Lexer;
 import it.sevenbits.reader.StringReader;
 import it.sevenbits.writer.StringWriter;
 import org.junit.Test;
@@ -30,7 +31,8 @@ public class FormatterTest {
 
         StringReader reader = new StringReader(input, charset);
         StringWriter writer = new StringWriter(INITIAL_SIZE);
-        formatter.format(reader, writer);
+        Lexer lexer = new Lexer(reader);
+        formatter.format(lexer, writer);
         reader.close();
         writer.close();
 
@@ -50,7 +52,8 @@ public class FormatterTest {
 
         StringReader reader = new StringReader(input, charset);
         StringWriter writer = new StringWriter(INITIAL_SIZE);
-        formatter.format(reader, writer);
+        Lexer lexer = new Lexer(reader);
+        formatter.format(lexer, writer);
         reader.close();
         writer.close();
 
@@ -75,7 +78,8 @@ public class FormatterTest {
 
         StringReader reader = new StringReader(input, charset);
         StringWriter writer = new StringWriter(INITIAL_SIZE);
-        formatter.format(reader, writer);
+        Lexer lexer = new Lexer(reader);
+        formatter.format(lexer, writer);
         reader.close();
         writer.close();
 
