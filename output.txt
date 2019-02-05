@@ -1,12 +1,8 @@
-public class LeaString[] args) {
-    int year = 1900;
-    boolean leap = false;
-    if(year % 4 == 0) {
-        if( year % 100 == 0) {
-            
-        }
-    }if (leap) {
-        System.out.println(year + " is a leap year.");
-    }System.out.println(year + " is not a leap year.");
-}
+ИМЯ_БЛОКА {
+    ИМЯ_ПОДБЛОКА (ВЫРАЖЕНИЕ_В_СКОБКАХ) {
+        ИНСТРУКЦИЯ_1;
+        ИНСТРУКЦИЯ_2;
+        ИНСТРУКЦИЯ_3;
+    
+    }
 }

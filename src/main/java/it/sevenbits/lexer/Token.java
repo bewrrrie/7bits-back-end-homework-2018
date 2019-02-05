@@ -41,4 +41,12 @@ public class Token implements IToken {
     public String getLexeme() {
         return lexeme;
     }
+
+    @Override
+    public String toString() {
+        return "Token{" +
+        "name='" + name + '\'' +
+        ", lexeme='" + lexeme + '\'' +
+        '}';
+    }
 }
